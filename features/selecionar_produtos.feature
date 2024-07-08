@@ -27,7 +27,7 @@
       When digito os dados de login com usuario <usuario> e senha <senha> com IF
       Then exibe <mensagem>  de erro
 
-      Scenario Outline: login negativo com IF
+      Scenario Outline: login negativo com IF      
       Given que acesso o site Sauce Demo
       When digito os dados de login com usuario <usuario> e senha <senha>
       Then exibe <mensagem> de erro
