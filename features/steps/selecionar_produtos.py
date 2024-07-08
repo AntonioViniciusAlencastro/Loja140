@@ -20,7 +20,20 @@ def step_impl(context, usuario, senha):
 def step_impl(context, senha):
        context.driver.find_element(By.ID , "password").send_keys(senha) 
        context.driver.find_element(By.ID , "login-button").click() 
-    
+
+@when(u'preencho os dados de login com usuario {usuario} e senha ')
+def step_impl(context, usuario):
+        context.driver.find_element(By.ID , "user-name").send_keys(usuario) 
+        context.driver.find_element(By.ID , "login-button").click() 
+
+@when(u'digito os dados de login com usuario {usuario} e senha {senha}')
+def step_impl(context, usuario, senha):
+       if usuario != '<branco>':
+         context.driver.find_element(By.ID , "user-name").send_keys(usuario)
+       if senha != '<branco>':  
+         context.driver.find_element(By.ID , "password").send_keys(senha) 
+       context.driver.find_element(By.ID , "login-button").click()   
+
 @then(u'sou direcionado para pagina Home')
 def step_impl(context):
         assert  context.driver.find_element (By.CSS_SELECTOR, "span.title").text =="Products"
